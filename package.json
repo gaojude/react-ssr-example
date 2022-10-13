@@ -15,7 +15,7 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-    "dev": "concurrently --kill-others \"tsc --watch\" \"nodemon ./dist/index.js\"",
+    "dev": "concurrently --kill-others \"tsc --watch\" \"nodemon ./dist/index.js\" \"esbuild ./dist/react-app/client/index.js --bundle --outfile=public/bundle.js --watch\"",
     "client:build": "tsc && esbuild ./dist/react-app/client/index.js --bundle --outfile=public/bundle.js"
   },
   "dependencies": {

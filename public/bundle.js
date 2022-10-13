@@ -1,34 +1,9 @@
 "use strict";
 (() => {
-  var __create = Object.create;
-  var __defProp = Object.defineProperty;
-  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropNames = Object.getOwnPropertyNames;
-  var __getProtoOf = Object.getPrototypeOf;
-  var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __esm = (fn, res) => function __init() {
-    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
-  };
   var __commonJS = (cb, mod) => function __require() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
-  var __export = (target, all) => {
-    for (var name in all)
-      __defProp(target, name, { get: all[name], enumerable: true });
-  };
-  var __copyProps = (to, from, except, desc) => {
-    if (from && typeof from === "object" || typeof from === "function") {
-      for (let key of __getOwnPropNames(from))
-        if (!__hasOwnProp.call(to, key) && key !== except)
-          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-    }
-    return to;
-  };
-  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-    mod
-  ));
-  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // node_modules/react/cjs/react.development.js
   var require_react_development = __commonJS({
@@ -1009,7 +984,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1809,7 +1784,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2305,9 +2280,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React3 = require_react();
+          var React = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3828,7 +3803,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React3.Children.forEach(props.children, function(child) {
+                  React.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11989,7 +11964,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React3.Component().refs;
+          var emptyRefsObject = new React.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -22905,45 +22880,60 @@
     }
   });
 
-  // react-app/App/Counter.tsx
-  var import_react, import_react2, Counter;
-  var init_Counter = __esm({
-    "react-app/App/Counter.tsx"() {
+  // dist/react-app/App/Counter.js
+  var require_Counter = __commonJS({
+    "dist/react-app/App/Counter.js"(exports) {
       "use strict";
-      import_react = __toESM(require_react());
-      import_react2 = __toESM(require_react());
-      Counter = () => {
-        const [count, setCount] = (0, import_react2.useState)(0);
+      var __importDefault = exports && exports.__importDefault || function(mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.Counter = void 0;
+      var react_1 = __importDefault(require_react());
+      var react_2 = require_react();
+      var Counter = () => {
+        const [count, setCount] = (0, react_2.useState)(0);
         const increment = () => {
           setCount((count2) => count2 + 1);
         };
-        return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("button", {
-          onClick: increment
-        }, "Increment Count"), "Current Count: ", count);
+        return react_1.default.createElement(
+          "div",
+          null,
+          react_1.default.createElement("h1", null, "Jude's Counter Example"),
+          react_1.default.createElement(
+            "p",
+            null,
+            "Current Count: ",
+            count
+          ),
+          react_1.default.createElement("button", { onClick: increment }, "Increment Count")
+        );
       };
+      exports.Counter = Counter;
     }
   });
 
-  // react-app/App/App.tsx
-  var App_exports = {};
-  __export(App_exports, {
-    App: () => App
-  });
-  var import_react3, App;
-  var init_App = __esm({
-    "react-app/App/App.tsx"() {
+  // dist/react-app/App/App.js
+  var require_App = __commonJS({
+    "dist/react-app/App/App.js"(exports) {
       "use strict";
-      import_react3 = __toESM(require_react());
-      init_Counter();
-      App = () => {
-        return /* @__PURE__ */ import_react3.default.createElement(Counter, null);
+      var __importDefault = exports && exports.__importDefault || function(mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
       };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.App = void 0;
+      var react_1 = __importDefault(require_react());
+      var Counter_1 = require_Counter();
+      var App = () => {
+        return react_1.default.createElement(Counter_1.Counter, null);
+      };
+      exports.App = App;
     }
   });
 
-  // react-app/client/index.js
+  // dist/react-app/client/index.js
   var require_client2 = __commonJS({
-    "react-app/client/index.js"(exports) {
+    "dist/react-app/client/index.js"(exports) {
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
           k2 = k;
@@ -22982,7 +22972,7 @@
       Object.defineProperty(exports, "__esModule", { value: true });
       var react_1 = __importDefault(require_react());
       var ReactDOMClient = __importStar(require_client());
-      var App_1 = (init_App(), __toCommonJS(App_exports));
+      var App_1 = require_App();
       console.log(document.getElementById("app"));
       ReactDOMClient.hydrateRoot(document.getElementById("app"), react_1.default.createElement(App_1.App, null));
     }

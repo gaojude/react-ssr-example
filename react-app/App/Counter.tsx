@@ -9,8 +9,9 @@ export const Counter = () => {
 
   return (
     <div>
+      <h1>Jude's Counter Example</h1>
+      <p>Current Count: {count}</p>
       <button onClick={increment}>Increment Count</button>
-      Current Count: {count}
     </div>
   );
 };
