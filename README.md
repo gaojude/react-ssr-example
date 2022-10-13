@@ -1,4 +1,4 @@
-# react-ssr-example
+# React SSR Example by Jude Gao
 
 - `yarn dev`: builds the typescript files into `/dist` and runs a nodemon based on `/dist/index.js`
 - `yarn client:build`: builds the client bundle rooted at `/react-app/client/index.tsx` and places the bundle at `/public/bundle.js`
