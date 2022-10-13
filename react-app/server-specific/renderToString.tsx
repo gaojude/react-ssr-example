@@ -1,7 +1,16 @@
 import React from "react";
 import * as ReactDOMServer from "react-dom/server";
-import { App } from "../src/App/App";
+import { ServerStyleSheet } from "styled-components";
+import { Body } from "../src/Body";
 
-export const renderToString = () => {
-  return ReactDOMServer.renderToString(<App />);
+export const renderToString = (): {
+  bodyString: string;
+  styleString: string;
+} => {
+  const sheet = new ServerStyleSheet();
+  const bodyString = ReactDOMServer.renderToString(
+    sheet.collectStyles(<Body />)
+  );
+  const styleString = sheet.getStyleTags();
+  return { bodyString, styleString };
 };
