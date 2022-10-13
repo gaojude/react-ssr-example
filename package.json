@@ -14,13 +14,14 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-      "dev": "tsc && concurrently --kill-others \"tsc --watch\" \"esbuild ./dist/react-app/client-specific/index.js --bundle --outfile=public/bundle.js --watch\" \"nodemon ./dist/index.js\"",
-      "clean": "rm -rf ./dist/"
+    "dev": "tsc && concurrently --kill-others \"tsc --watch\" \"esbuild ./dist/react-app/client-specific/index.js --bundle --outfile=public/bundle.js --watch\" \"nodemon ./dist/index.js\"",
+    "clean": "rm -rf ./dist/"
   },
   "dependencies": {
+    "@types/styled-components": "^5.1.26",
     "express": "^4.18.2",
-    "hbs": "^4.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6"
   }
 }

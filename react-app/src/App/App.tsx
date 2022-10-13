@@ -1,11 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Counter } from "./Counter";
+import styled from "styled-components";
 
 export const App = () => {
   return (
-    <div>
-      <h1>Counter Example</h1>
-      <Counter />
-    </div>
+    <>
+      <Title>Counter Example with Streaming!!!</Title>
+      <Suspense>
+        <Counter />
+      </Suspense>
+    </>
   );
 };
+
+const Title = styled.div`
+  font-size: 30px;
+  color: yellow;
+`;
