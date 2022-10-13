@@ -16,7 +16,6 @@ export const Counter = () => {
   };
 
   const { paragraphCopy, buttonCopy } = useData();
-
   return (
     <div>
       <p>

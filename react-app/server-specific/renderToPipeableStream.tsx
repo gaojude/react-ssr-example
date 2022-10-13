@@ -3,8 +3,4 @@ import * as ReactDOMServer from "react-dom/server";
 import { RenderToPipeableStreamOptions } from "react-dom/server";
 import { Index } from "../src";
 
-export const renderToPipeableStream = (
-  options?: RenderToPipeableStreamOptions
-) => {
-  return ReactDOMServer.renderToPipeableStream(<Index />, options);
-};
+export const renderToPipeableStream = () => {};
