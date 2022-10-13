@@ -1,4 +1,4 @@
-import { renderToString } from "../react-app/server/renderToString";
+import { renderToString } from "../react-app/server-specific/renderToString";
 import { expressApp } from "./expressApp";
 import express from "express";
 import path from "path";

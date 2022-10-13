@@ -1,7 +1,6 @@
 {
   "name": "react-ssr",
   "version": "1.0.0",
-  "main": "./build/index.js",
   "author": "Jude Gao",
   "license": "MIT",
   "devDependencies": {
@@ -15,8 +14,7 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-    "dev": "concurrently --kill-others \"tsc --watch\" \"nodemon ./dist/index.js\" \"esbuild ./dist/react-app/client/index.js --bundle --outfile=public/bundle.js --watch\"",
-    "client:build": "tsc && esbuild ./dist/react-app/client/index.js --bundle --outfile=public/bundle.js"
+    "dev": "concurrently --kill-others \"tsc --watch\" \"esbuild ./dist/react-app/client-specific/index.js --bundle --outfile=public/bundle.js --watch\" \"nodemon ./dist/index.js\""
   },
   "dependencies": {
     "express": "^4.18.2",
