@@ -45,8 +45,13 @@ export const initializeServer = () => {
 
     const processedTags = new Set<string>();
 
+    // const destination = res;
+    const destination = res;
+
     const writeStyle = () => {
       const _tags = sheet.getStyleTags();
+
+      // TODO: may be able to de-hack this if we change styled components
       const tags = _tags
         .slice(`<style data-styled="true" data-styled-version="5.3.6">`.length)
         .slice(0, -`</style>`.length);
@@ -59,7 +64,10 @@ export const initializeServer = () => {
           final += tag + "\n";
         }
       });
-      res.write(`<style>${final}</style>`);
+
+      if (final.length > 0) {
+        destination.write(`<style>${final}</style>`);
+      }
     };
 
     const stream = ReactDOMServer.renderToPipeableStream(
@@ -71,7 +79,7 @@ export const initializeServer = () => {
       {
         onShellReady: () => {
           writeStyle();
-          stream.pipe(res);
+          stream.pipe(destination);
         },
         onFlushingChunk: (b: any) => {
           console.log("on flushing boundary component");
@@ -80,7 +88,7 @@ export const initializeServer = () => {
       } as any
     );
 
-    // res.sendStatus(200)
+    // destination.sendStatus(200)
   });
 };
 
