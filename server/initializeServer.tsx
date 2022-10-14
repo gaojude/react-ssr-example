@@ -35,17 +35,15 @@ export const initializeServer = () => {
   });
 
   expressApp.get("/stream", (req, res) => {
-    // PASS 1
-    const { styleString } = renderToString();
-    res.write(styleString)
-
-    // PASS 2
+    const sheet = new ServerStyleSheet()
     const stream = ReactDOMServer.renderToPipeableStream(
+      sheet.collectStyles(
       <DataContext.Provider value={createServerData()}>
         <Body />
-      </DataContext.Provider>,
+      </DataContext.Provider>),
       {
         onShellReady: () => {
+          res.write(sheet.getStyleTags())
           stream.pipe(res);
         },
       }
