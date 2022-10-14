@@ -7,14 +7,23 @@ import { Delay } from "./Delay";
 export const App = () => {
   return (
     <>
-      <Title>Counter Example with Streaming!!!</Title>
-      {/*<Suspense>*/}
-      {/*  {times(100).map((i) => (*/}
-      {/*    <Counter key={i} />*/}
-      {/*  ))}*/}
-      {/*</Suspense>*/}
       <Suspense>
-        <Delay />
+        <Title>Counter Example with Streaming!!!</Title>
+      </Suspense>
+      <Suspense>
+        {times(10).map((_) => (
+          <Delay color="red" />
+        ))}
+      </Suspense>
+      <Suspense>
+        {times(10).map((_) => (
+          <Delay color="green" />
+        ))}
+      </Suspense>
+      <Suspense>
+        {times(10).map((_) => (
+          <Delay color="blue" moreContent />
+        ))}
       </Suspense>
     </>
   );

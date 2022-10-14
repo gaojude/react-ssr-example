@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import * as ReactDOMServer from "react-dom/server";
 import { ServerStyleSheet } from "styled-components";
 import { Body } from "../src/Body";

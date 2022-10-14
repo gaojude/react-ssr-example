@@ -1,3 +1,6 @@
 import { createContext, useContext } from "react";
 
-export const DataContext = createContext({ read: () => {} });
+export const DataContext = createContext({
+  read: () => {},
+  slowRead: () => {},
+});
