@@ -46,6 +46,9 @@ export const initializeServer = () => {
           res.write(sheet.getStyleTags())
           stream.pipe(res);
         },
+        onAllReady: () => {
+          res.write(sheet.getStyleTags())
+        }
       }
     );
   });
@@ -69,7 +72,7 @@ function createServerData() {
           done = true;
           promise = null;
           resolve();
-        }, 10000);
+        }, 3000);
       });
       throw promise;
     },
