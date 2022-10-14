@@ -35,12 +35,11 @@ export const initializeServer = () => {
   });
 
   expressApp.get("/stream", (req, res) => {
-    // const styleSheet = new ServerStyleSheet();
-    // const jsx = styleSheet.collectStyles(React.createElement(Body));
-    // const stream = await renderToStream(jsx, styleSheet);
+    // PASS 1
+    const { styleString } = renderToString();
+    res.write(styleString)
 
-    // ReactDOMServer.renderToStaticMarkup(jsx);
-
+    // PASS 2
     const stream = ReactDOMServer.renderToPipeableStream(
       <DataContext.Provider value={createServerData()}>
         <Body />
@@ -72,7 +71,7 @@ function createServerData() {
           done = true;
           promise = null;
           resolve();
-        }, 1000);
+        }, 10000);
       });
       throw promise;
     },
